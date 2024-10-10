@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <ul>
+    <ul :class="navMenuClasses.listClasses">
       <li class="nav-item">
         <router-link class="nav-link" to="/">Home</router-link>
       </li>
@@ -20,20 +20,61 @@
         <router-link class="nav-link" to="/#">Contact</router-link>
       </li>      
     </ul>
+    <button class="menu-btn" @click="toggleMenu()">
+      <i v-if="!menuOpen" class="fa-solid fa-bars"></i>
+      <i v-if="menuOpen" class="fa-solid fa-x"></i>
+    </button>
   </nav>
   <router-view/>
 </template>
 
+<script>
+  export default {
+  name: 'App',
+  data() {
+    return {
+      menuOpen: false,
+      closingMenu: false,
+    }
+  },
+  computed: {
+    navMenuClasses() {
+      let listClasses = `${
+        this.menuOpen ? 'nav-menu' : null
+        } ${
+        this.closingMenu ? 'fade-out-right' : null
+        }`;
+      return {
+        listClasses: listClasses
+      }
+    },
+  },
+  methods: {
+    toggleMenu() {
+      if (this.menuOpen) {
+        this.closingMenu = true;
+        setTimeout(() => {
+          this.closingMenu = false;
+          this.menuOpen = !this.menuOpen;
+        }, 200);
+      }
+      else {
+        this.menuOpen = !this.menuOpen;
+      }
+    },
+  }
+}
+</script>
+
 <style>
 :root {
   --main-clr: #5afecb;
-  scrollbar-color: var(--main-clr) #0d1417;
-  overflow-y: scroll;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: 200ms;
 }
 body {
   background: linear-gradient(145deg, #22343f, #0d1417);
@@ -70,10 +111,6 @@ ul {
   color: whitesmoke;
   text-shadow: 0 0px 1px whitesmoke;
 }
-.active-nav-link {
-  text-decoration: underline;
-  text-shadow: 0 0px 3px whitesmoke;
-}
 @keyframes arrow-move {
   0% {
     left: 0;
@@ -83,6 +120,88 @@ ul {
   }
   100% {
     left: 0;
+  }
+}
+@media screen and (max-width: 915px) {
+  :root {
+    scrollbar-color: var(--main-clr) #0d1417;
+    overflow-y: scroll;
+  }
+  #app {
+    height: 100%;
+  }
+}
+.menu-btn {
+  display: none;
+  background-color: inherit;
+  margin: 30px;
+  font-size: 2em;
+  color: whitesmoke;
+  border-style: none;
+}
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    left: 100%;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+@keyframes fade-out-right {
+  from {
+    opacity: 1;
+    left: 0;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+@media screen and (max-width: 732px) {
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .menu-btn {
+    display: inline-block;
+    position: fixed;
+  }
+  ul {
+    display: none;
+    position: fixed;
+    left: 100%;
+  }
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    background: linear-gradient(145deg, #22343f, #0d1417);
+    left: 0;
+    animation-name: fade-in-right;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
+  }
+  .nav-item {
+    text-align: start;
+    padding: 10px 5px;
+    margin-left: 40px;
+    border-radius: 5px;
+  }
+  .nav-link {
+    font-size: 1.3em;
+    display: inline;
+  }
+  .nav-item:hover {
+    background-color: #22343f;
+  }
+  .fade-out-right {
+    animation-name: fade-out-right;
+    animation-duration: 250ms;
+    animation-timing-function: ease;
   }
 }
 </style>

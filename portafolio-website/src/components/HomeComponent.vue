@@ -35,6 +35,8 @@ export default {
     display: grid;
     grid-template-columns: 2.3fr 1fr;
     padding-top: 75px;
+    scrollbar-color: var(--main-clr) #0d1417;
+    overflow-y: scroll;
   }
   main {
     display: flex;
@@ -48,10 +50,6 @@ export default {
   h1 {
     font-size: 6.5em;
     color: var(--main-clr);
-  }
-  h2 {
-    color: var(--main-clr);
-    
   }
   p {
     font-size: 1.3em;
@@ -80,6 +78,38 @@ export default {
     height: auto;
     width: 100%;
     border-radius: 50px;
-    clip-path: inset(20px 60px 10px 0 round 50px);
+    clip-path: inset(20px 120px 10px 0 round 50px);
+  }
+  @media screen and (max-width: 915px) {
+    .home {
+      display: flex;
+      flex-direction: column;
+      overflow-y: hidden;
+    }
+    section {
+      padding: 0 50px;
+    }
+    img {
+      padding: 50px;
+      width: 75%;
+      margin: 0 auto;
+      border-radius: 150px;
+    }
+    h1 {
+      font-size: 4.5em;
+    }
+  }
+  @media screen and (max-width: 732px) {
+    .home {
+      flex-direction: column-reverse;
+      padding-bottom: 50px;
+      padding-top: 10px;
+    }
+    img {
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
   }
 </style>
