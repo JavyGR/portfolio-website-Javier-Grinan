@@ -25,6 +25,9 @@
 </template>
 
 <style>
+:root {
+  --main-clr: #5afecb;
+}
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +37,6 @@ body {
   background: linear-gradient(145deg, rgb(34, 52, 63), #0d1417);
 }
 #app {
-  /* #5afecb */
   /* font family */
   height: 100vh;
   width: 100%;
