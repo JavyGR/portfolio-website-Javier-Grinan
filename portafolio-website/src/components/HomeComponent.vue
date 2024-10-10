@@ -80,6 +80,14 @@ export default {
     border-radius: 50px;
     clip-path: inset(20px 120px 10px 0 round 50px);
   }
+  @media screen and (max-width: 1400px) {
+    .home {
+      grid-template-columns: 1.5fr 1fr;
+    }
+    section {
+      padding: 0 60px;
+    }
+  }
   @media screen and (max-width: 915px) {
     .home {
       display: flex;
