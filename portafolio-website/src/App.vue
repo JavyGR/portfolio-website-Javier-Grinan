@@ -5,7 +5,7 @@
         <router-link class="nav-link" to="/">Home</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/about">About Me</router-link>
+        <router-link class="nav-link" to="/aboutme">About Me</router-link>
       </li>
       <li class="nav-item">
         <router-link class="nav-link" to="/#">Service</router-link>
@@ -27,6 +27,8 @@
 <style>
 :root {
   --main-clr: #5afecb;
+  scrollbar-color: var(--main-clr) #0d1417;
+  overflow-y: scroll;
 }
 * {
   margin: 0;
@@ -34,7 +36,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(145deg, rgb(34, 52, 63), #0d1417);
+  background: linear-gradient(145deg, #22343f, #0d1417);
 }
 #app {
   /* font family */
@@ -45,6 +47,12 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+nav {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
 ul {
   margin-bottom: 0;
@@ -66,5 +74,15 @@ ul {
   text-decoration: underline;
   text-shadow: 0 0px 3px whitesmoke;
 }
-
+@keyframes arrow-move {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 15px;
+  }
+  100% {
+    left: 0;
+  }
+}
 </style>
