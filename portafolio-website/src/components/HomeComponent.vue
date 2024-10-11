@@ -75,10 +75,9 @@ export default {
     align-items: center;
   }
   img {
-    height: auto;
-    width: 100%;
+    height: calc(100vh - 80px);
+    width: auto;
     border-radius: 50px;
-    clip-path: inset(20px 120px 10px 0 round 50px);
   }
   @media screen and (max-width: 1400px) {
     .home {
@@ -98,10 +97,7 @@ export default {
       padding: 0 50px;
     }
     img {
-      padding: 50px;
-      width: 75%;
-      margin: 0 auto;
-      border-radius: 150px;
+      margin: 50px auto;
     }
     h1 {
       font-size: 4.5em;
@@ -114,7 +110,7 @@ export default {
       padding-top: 10px;
     }
     img {
-      width: 100%;
+      height: 70vh;
     }
     h1 {
       font-size: 2.5em;
