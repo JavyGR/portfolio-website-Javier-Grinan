@@ -1,11 +1,15 @@
 <template>
-  <div class="projects">
-    <h1>Projects (not ready yet)</h1>
-  </div>
+  <ProjectsComponent/>
 </template>
 
-<style>
-  .projects {
-    margin-top: 76px;
+<script>
+// @ is an alias to /src
+import ProjectsComponent from '@/components/ProjectsComponent.vue';
+
+export default {
+  name: 'ProjectsView',
+  components: {
+    ProjectsComponent
   }
-</style>
+}
+</script>
