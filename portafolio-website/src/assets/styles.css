@@ -1,7 +1,9 @@
+/* Root variable */
 :root {
   --main-clr: #5afecb;
 }
 
+/* Global resets */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +15,7 @@ body {
   background: linear-gradient(145deg, #22343f, #0d1417);
 }
 
+/* Main app container */
 #app {
   /* font family */
   height: 100vh;
@@ -24,6 +27,7 @@ body {
   flex-direction: column;
 }
 
+/* Navigation bar */
 nav {
   top: 0;
   position: fixed;
@@ -64,6 +68,7 @@ ul {
   }
 }
 
+/* Media query for responsiveness */
 @media screen and (max-width: 915px) {
   :root {
     scrollbar-color: var(--main-clr) #0d1417;
@@ -75,6 +80,7 @@ ul {
   }
 }
 
+/* Menu */
 .menu-btn {
   display: none;
   background-color: inherit;
@@ -108,6 +114,7 @@ ul {
   }
 }
 
+/* Mobile navigation styles */
 @media screen and (max-width: 732px) {
   nav {
     display: flex;
@@ -126,6 +133,7 @@ ul {
     left: 100%;
   }
 
+  /* Responsive nav menu styling */
   .nav-menu {
     display: flex;
     flex-direction: column;
