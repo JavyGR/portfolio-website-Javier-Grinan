@@ -2,6 +2,11 @@ export default async function getRepos() {
   try {
     const apiURL = 'https://api.github.com/users/JavyGR/repos';
     const response = await fetch(apiURL);
+    if (!response.ok) {
+      throw new Error(`Error fetching repositories.\n` +
+        `Status Text: ${response.status}\n` +
+        `Status Message: ${response.statusText}`);
+    }
     const repos = await response.json();
     const reposList = [];
     const reposCount = repos.length;
@@ -18,7 +23,7 @@ export default async function getRepos() {
     return reposList;
   }
   catch (error) {
-    console.error(`Error\n${error}`);
+    console.error(error);
     throw error;
   }
 }
