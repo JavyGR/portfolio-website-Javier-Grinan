@@ -33,7 +33,6 @@ export default {
     padding-top: 75px;
     scrollbar-color: var(--main-clr) #0d1417;
     overflow-y: scroll;
-    border: 1px solid blue;
   }
   main {
     display: flex;
@@ -85,6 +84,10 @@ export default {
     }
   }
   @media screen and (max-width: 915px) {
+    :root {
+      scrollbar-color: var(--main-clr) #0d1417;
+      overflow-y: scroll;
+    }
     .home {
       display: flex;
       flex-direction: column;

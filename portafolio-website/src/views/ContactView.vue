@@ -7,5 +7,6 @@
 <style>
   .contact {
     margin-top: 76px;
+    height: 100vh;
   }
 </style>

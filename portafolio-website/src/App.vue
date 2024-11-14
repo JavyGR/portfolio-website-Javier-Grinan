@@ -2,22 +2,22 @@
   <nav>
     <ul :class="navMenuClasses.listClasses">
       <li class="nav-item">
-        <router-link class="nav-link" to="/">Home</router-link>
+        <router-link class="nav-link" to="/" @click="closeMenu()">Home</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/aboutme">About Me</router-link>
+        <router-link class="nav-link" to="/aboutme" @click="closeMenu()">About Me</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/service">Service</router-link>
+        <router-link class="nav-link" to="/service" @click="closeMenu()">Service</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/projects">Projects</router-link>
+        <router-link class="nav-link" to="/projects" @click="closeMenu()">Projects</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/blog">Blog</router-link>
+        <router-link class="nav-link" to="/blog" @click="closeMenu()">Blog</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/contact">Contact</router-link>
+        <router-link class="nav-link" to="/contact" @click="closeMenu()">Contact</router-link>
       </li>      
     </ul>
     <button class="menu-btn" @click="toggleMenu()">
@@ -61,6 +61,13 @@
       else {
         this.menuOpen = !this.menuOpen;
       }
+    },
+    closeMenu() {
+      this.closingMenu = true;
+      setTimeout(() => {
+        this.closingMenu = false;
+        this.menuOpen = false;
+      }, 200);
     },
   }
 }

@@ -1,6 +1,7 @@
 /* Root variable */
 :root {
   --main-clr: #5afecb;
+  scrollbar-color: var(--main-clr) #0d1417;
 }
 
 /* Global resets */
@@ -70,11 +71,6 @@ ul {
 
 /* Media query for responsiveness */
 @media screen and (max-width: 915px) {
-  :root {
-    scrollbar-color: var(--main-clr) #0d1417;
-    overflow-y: scroll;
-  }
-
   #app {
     height: 100%;
   }
