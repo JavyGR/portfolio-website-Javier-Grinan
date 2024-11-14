@@ -1,29 +1,72 @@
 <template>
   <div class="projects">
-    <h1>Projects</h1>
-    <ul>
-      <li>
-        <h2>Project Name</h2>
-        <p>Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nam veniam nobis enim accusantium illo sint dolorum nihil amet tempora perspiciatis quae, provident ullam molestiae non eos nemo, magnam reiciendis.</p>
-        <p><strong>Main technology used: </strong>Vue</p>
-        <p><strong>Last date updated: </strong>01/03/2025</p>
+    <h1 class="page-title">Projects</h1>
+    <ul v-if="didAPIRespond && isAPIResOK && repos.length" class="repos-list">
+      <li
+        v-for="repository in repos"
+        :key="repository.id"
+        class="repository"
+      >
+        <h2 class="repository-name">
+          <a :href="repository.link" target="_blank" rel="noopener noreferrer">
+            {{ repository.name }}
+          </a>
+        </h2>
+        <p>{{ repository.description }}</p>
+        <p><strong>Main technology used: </strong>{{ repository.mainLanguage }}</p>
+        <p><strong>Last date updated: </strong>{{ formatDate(repository.lastUpdated) }}</p>
       </li>
     </ul>
-    <!-- <div class="message-box">
+    <div v-if="didAPIRespond && isAPIResOK && !repos.length" class="message-box">
       <h2>No projects here</h2>
-    </div> -->
-    <!-- <div class="message-box">
-      <h2>Error obtaining projects</h2>
-    </div> -->
-    <!-- <div class="message-box">
+    </div>
+    <div v-if="!isAPIResOK" class="message-box">
+      <h2 class="error-msg">Error obtaining projects</h2>
+    </div>
+    <div v-if="!didAPIRespond" class="message-box">
       <h2>Loading projects</h2>
-    </div> -->
+    </div>
   </div>
 </template>
 
-<script>
+<script type="module">
+import getRepos from '@/api';
+
 export default {
   name: 'HomeComponent',
+  data() {
+    return {
+      didAPIRespond: false,
+      isAPIResOK: true,
+      repos: [],
+    }
+  },
+  methods: {
+    async getReposFromGitHub() {
+      try {
+        this.repos = await getRepos();
+      }
+      catch (error) {
+        this.isAPIResOK = false;
+        console.error(error);
+      }
+      finally {
+        this.didAPIRespond = true;
+      }
+    },
+    formatDate(dateString) {
+      const date = new Date(dateString);
+
+      const year = date.getUTCFullYear();
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+      const day = date.getUTCDate().toString().padStart(2, '0');
+
+      return `${month} - ${day} - ${year}`;
+    }
+  },
+  mounted() {
+    this.getReposFromGitHub();
+  }
 }
 </script>
 
@@ -42,6 +85,21 @@ export default {
     font-size: 5em;
     color: var(--main-clr);
   }
+  .repos-list {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid yellow;
+    align-items: flex-start;
+    padding: 25px;
+    height: auto;
+    width: 90%;
+    justify-content: flex-start;
+    list-style: none;
+  }
+  .repository {
+    
+  }
+
   @media screen and (max-width: 915px) {
     .projects {
       flex-direction: column;
@@ -58,6 +116,13 @@ export default {
     }
     h1 {
       font-size: 2.5em;
+    }
+    ul {
+      width: 100%;
+      display: flex;
+      position: static;
+      left: 0;
+      padding: 5px;
     }
   }
 
