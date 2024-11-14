@@ -8,16 +8,16 @@
         <router-link class="nav-link" to="/aboutme">About Me</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/#">Service</router-link>
+        <router-link class="nav-link" to="/service">Service</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/#">Projects</router-link>
+        <router-link class="nav-link" to="/projects">Projects</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/#">Blog</router-link>
+        <router-link class="nav-link" to="/blog">Blog</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/#">Contact</router-link>
+        <router-link class="nav-link" to="/contact">Contact</router-link>
       </li>      
     </ul>
     <button class="menu-btn" @click="toggleMenu()">

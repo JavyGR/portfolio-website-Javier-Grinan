@@ -13,6 +13,34 @@ const routes = [
     component: function () {
       return import('../views/AboutMeView.vue')
     }
+  },
+  {
+    path: '/service',
+    name: 'service',
+    component: function () {
+      return import('../views/ServiceView.vue')
+    }
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: function () {
+      return import('../views/ProjectsView.vue')
+    }
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: function () {
+      return import('../views/BlogView.vue')
+    }
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: function () {
+      return import('../views/ContactView.vue')
+    }
   }
 ]
 
