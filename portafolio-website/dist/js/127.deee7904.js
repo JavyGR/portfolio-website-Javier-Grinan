@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkportafolio_website"]=self["webpackChunkportafolio_website"]||[]).push([[127],{127:function(t,n,e){e.r(n),e.d(n,{default:function(){return i}});var o=e(641);const r={class:"contact"};function a(t,n){return(0,o.uX)(),(0,o.CE)("div",r,n[0]||(n[0]=[(0,o.Lk)("h1",null,"Contact (not ready yet)",-1)]))}var c=e(262);const u={},s=(0,c.A)(u,[["render",a]]);var i=s}}]);
-//# sourceMappingURL=127.deee7904.js.map
