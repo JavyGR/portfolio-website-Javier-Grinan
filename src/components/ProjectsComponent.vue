@@ -31,7 +31,7 @@
 </template>
 
 <script type="module">
-import getRepos from '@/api';
+import getRepos from '../api';
 
 export default {
   name: 'HomeComponent',

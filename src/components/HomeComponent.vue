@@ -14,7 +14,7 @@
       </section>
     </main>
     <aside>
-      <img src="@/assets/portrait.png" alt="Javier Grinan portrait">
+      <img src="../assets/portrait.png" alt="Javier Grinan portrait">
     </aside>
   </div>
 </template>
