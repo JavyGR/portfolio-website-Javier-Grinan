@@ -1,0 +1,1 @@
+import{_ as r,c as s,a as t,o as c}from"./index-DM-cNW91.js";const o={},n={class:"service"};function a(i,e){return c(),s("div",n,e[0]||(e[0]=[t("h1",null,"Service (not ready yet)",-1)]))}const d=r(o,[["render",a]]);export{d as default};

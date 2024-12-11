@@ -1,0 +1,1 @@
+import{_ as o,c as t,a as s,o as n}from"./index-DM-cNW91.js";const r={},a={class:"blog"};function c(l,e){return n(),t("div",a,e[0]||(e[0]=[s("h1",null,"Blog (not ready yet)",-1)]))}const d=o(r,[["render",c]]);export{d as default};
