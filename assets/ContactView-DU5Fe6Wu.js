@@ -1,0 +1,1 @@
+import{_ as e,c as o,a as c,o as n}from"./index-DM-cNW91.js";const a={},s={class:"contact"};function r(_,t){return n(),o("div",s,t[0]||(t[0]=[c("h1",null,"Contact (not ready yet)",-1)]))}const l=e(a,[["render",r]]);export{l as default};

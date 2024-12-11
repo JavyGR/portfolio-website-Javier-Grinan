@@ -1,0 +1,1 @@
+import{_ as t,c as o,a as s,o as a}from"./index-DM-cNW91.js";const n={},r={class:"aboutme"};function c(_,e){return a(),o("div",r,e[0]||(e[0]=[s("h1",null,"About Me (not ready yet)",-1)]))}const l=t(n,[["render",c]]);export{l as default};
